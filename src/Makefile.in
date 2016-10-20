@@ -21,10 +21,10 @@ $(TARGET): $(OBJS)
 	$(NVCC) $(LDFLAGS) $(LIBS) $(OBJS) -o $@
 
 %.o: %.c
-	$(NVCC) -c $(FLAGS) $< -o $@
+	$(NVCC) -c -D_FORCE_INLINES $(FLAGS) $< -o  $@
 
 %.o: %.cu
-	$(NVCC) -c $(FLAGS) $< -o $@
+	$(NVCC) -c -D_FORCE_INLINES $(FLAGS) $< -o $@
 
 clean:
 	rm -rf $(OBJS) $(TARGET)
